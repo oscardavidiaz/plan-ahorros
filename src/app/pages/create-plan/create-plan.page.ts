@@ -17,9 +17,10 @@ import { SavingPlan } from './../../models';
 import { BasicInfoService, SavingPlanService } from './../../services';
 
 @Component({
-  selector: 'app-create-plan',
-  templateUrl: './create-plan.page.html',
-  styleUrls: ['./create-plan.page.scss'],
+    selector: 'app-create-plan',
+    templateUrl: './create-plan.page.html',
+    styleUrls: ['./create-plan.page.scss'],
+    standalone: false
 })
 export class CreatePlanPage implements OnInit {
   constructor(

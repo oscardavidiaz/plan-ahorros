@@ -12,9 +12,10 @@ import { SavingPlan } from './../../models';
 import { SavingPlanService } from './../../services';
 
 @Component({
-  selector: 'app-update-plan',
-  templateUrl: './update-plan.page.html',
-  styleUrls: ['./update-plan.page.scss'],
+    selector: 'app-update-plan',
+    templateUrl: './update-plan.page.html',
+    styleUrls: ['./update-plan.page.scss'],
+    standalone: false
 })
 export class UpdatePlanPage implements OnInit {
   constructor(

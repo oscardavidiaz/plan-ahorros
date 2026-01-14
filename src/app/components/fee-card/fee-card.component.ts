@@ -2,9 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FeeCardInfo } from '../../models';
 
 @Component({
-  selector: 'app-fee-card',
-  templateUrl: './fee-card.component.html',
-  styleUrls: ['./fee-card.component.scss'],
+    selector: 'app-fee-card',
+    templateUrl: './fee-card.component.html',
+    styleUrls: ['./fee-card.component.scss'],
+    standalone: false
 })
 export class FeeCardComponent implements OnInit {
   constructor() {}

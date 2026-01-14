@@ -7,9 +7,10 @@ import { SavingPlanDetail } from 'src/app/models';
 import { SavingPlanDetailService } from '../../services';
 
 @Component({
-  selector: 'app-view-plan',
-  templateUrl: './view-plan.page.html',
-  styleUrls: ['./view-plan.page.scss'],
+    selector: 'app-view-plan',
+    templateUrl: './view-plan.page.html',
+    styleUrls: ['./view-plan.page.scss'],
+    standalone: false
 })
 export class ViewPlanPage implements OnInit {
   constructor(

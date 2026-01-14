@@ -10,9 +10,10 @@ import { BasicInfoService, MenuService } from './../../services';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-basic-info',
-  templateUrl: './basic-info.page.html',
-  styleUrls: ['./basic-info.page.scss'],
+    selector: 'app-basic-info',
+    templateUrl: './basic-info.page.html',
+    styleUrls: ['./basic-info.page.scss'],
+    standalone: false
 })
 export class BasicInfoPage implements OnInit, OnDestroy {
   constructor(

@@ -22,9 +22,10 @@ import { SavingPlanDetailService, SavingPlanService } from './../../services';
 import { createArray } from '../../utils';
 
 @Component({
-  selector: 'app-my-plans',
-  templateUrl: './my-plans.page.html',
-  styleUrls: ['./my-plans.page.scss'],
+    selector: 'app-my-plans',
+    templateUrl: './my-plans.page.html',
+    styleUrls: ['./my-plans.page.scss'],
+    standalone: false
 })
 export class MyPlansPage implements OnInit {
   constructor(

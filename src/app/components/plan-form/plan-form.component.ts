@@ -14,9 +14,10 @@ import { SavingPlan } from '../../models';
 import { SavingPlanService } from '../../services';
 
 @Component({
-  selector: 'app-plan-form',
-  templateUrl: './plan-form.component.html',
-  styleUrls: ['./plan-form.component.scss'],
+    selector: 'app-plan-form',
+    templateUrl: './plan-form.component.html',
+    styleUrls: ['./plan-form.component.scss'],
+    standalone: false
 })
 export class PlanFormComponent implements OnInit, OnChanges {
   constructor(private savingPlanService: SavingPlanService) {
