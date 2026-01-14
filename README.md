@@ -1,6 +1,6 @@
 # Descripción
 
-En este repositorio se encuentra versionada una aplicación que permite crear planes de ahorro y hacerles seguimiento hasta que cumplas la meta, fue realizada con *Ionic 8* y *Angular 17*.
+En este repositorio se encuentra versionada una aplicación que permite crear planes de ahorro y hacerles seguimiento hasta que cumplas la meta, fue realizada con *Ionic 8* y *Angular 18*.
 
 **¡Se encuentra disponible para descargar desde la [Play Store](https://play.google.com/store/apps/details?id=lechediaz.plan_ahorros&pcampaignid=web_share)!**.
 
