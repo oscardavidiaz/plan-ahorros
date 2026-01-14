@@ -38,47 +38,48 @@
     <ion-label>Plazo (años)</ion-label>
 
     <ion-select formControlName="years" placeholder="Indique el plazo en años">
-      <ion-select-option
-        [value]="year.toString()"
-        *ngFor="let year of yearsArray"
-        >{{ year }}</ion-select-option
-      >
-    </ion-select>
-  </ion-item>
+      @for (year of yearsArray; track year) {
+        <ion-select-option
+          [value]="year.toString()"
+          >{{ year }}</ion-select-option
+          >
+        }
+      </ion-select>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Intervalo</ion-label>
-    <ion-select
-      formControlName="interval"
-      placeholder="Indique el intervalo de ahorro"
-    >
-      <ion-select-option [value]="Interval.Weekly">Semanal</ion-select-option>
-      <ion-select-option [value]="Interval.Biweekly"
-        >Quincenal</ion-select-option
-      >
-      <ion-select-option [value]="Interval.Monthly">Mensual</ion-select-option>
-    </ion-select>
-  </ion-item>
+    <ion-item>
+      <ion-label>Intervalo</ion-label>
+      <ion-select
+        formControlName="interval"
+        placeholder="Indique el intervalo de ahorro"
+        >
+        <ion-select-option [value]="Interval.Weekly">Semanal</ion-select-option>
+        <ion-select-option [value]="Interval.Biweekly"
+          >Quincenal</ion-select-option
+          >
+          <ion-select-option [value]="Interval.Monthly">Mensual</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-  <ion-item>
-    <ion-label slot="start">Tarifa</ion-label>
-    <ion-label slot="end">{{ form.value.fee | currency }}</ion-label>
-  </ion-item>
+      <ion-item>
+        <ion-label slot="start">Tarifa</ion-label>
+        <ion-label slot="end">{{ form.value.fee | currency }}</ion-label>
+      </ion-item>
 
-  <ion-button
-    class="ion-margin-top ion-margin-start"
-    color="primary"
-    [disabled]="!form.valid"
-    type="button"
-    (click)="onCalculateFeeClick()"
-    >Calcular tarifa</ion-button
-  >
+      <ion-button
+        class="ion-margin-top ion-margin-start"
+        color="primary"
+        [disabled]="!form.valid"
+        type="button"
+        (click)="onCalculateFeeClick()"
+        >Calcular tarifa</ion-button
+        >
 
-  <ion-button
-    class="ion-margin-top"
-    color="success"
-    [disabled]="!form.valid"
-    type="submit"
-    >Guardar</ion-button
-  >
-</form>
+        <ion-button
+          class="ion-margin-top"
+          color="success"
+          [disabled]="!form.valid"
+          type="submit"
+          >Guardar</ion-button
+          >
+        </form>

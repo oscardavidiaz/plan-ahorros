@@ -1,61 +1,62 @@
-<ion-card
-  *ngIf="isSkeleton; else theCardTemplate"
-  class="ion-margin-bottom custom-skeleton"
->
-  <ion-card-header>
-    <ion-card-subtitle
-      ><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text
-    ></ion-card-subtitle>
-    <ion-card-title
-      ><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text
-    ></ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    <p>
-      <ion-skeleton-text animated></ion-skeleton-text>
-    </p>
-    <p>
-      <ion-skeleton-text animated></ion-skeleton-text>
-    </p>
-    <p>
-      <ion-skeleton-text animated></ion-skeleton-text>
-    </p>
-    <ion-button class="ion-margin-top" color="success" size="small"
-      ><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text
-    ></ion-button>
-  </ion-card-content>
-</ion-card>
-
-<ng-template #theCardTemplate>
-  <p *ngIf="feeCardInfo === null">Sin información para el Card.</p>
-
+@if (isSkeleton) {
   <ion-card
-    *ngIf="feeCardInfo !== null"
-    [button]="true"
-    class="ion-margin-bottom"
-    (click)="onCardClickHandler()"
-  >
+    class="ion-margin-bottom custom-skeleton"
+    >
     <ion-card-header>
-      <ion-card-subtitle>{{
-        feeCardInfo.saving_date | date: "dd/MM/YYYY"
-      }}</ion-card-subtitle>
-      <ion-card-title>Ahorrando para "{{ feeCardInfo.goal }}"</ion-card-title>
+      <ion-card-subtitle
+        ><ion-skeleton-text animated style="width: 30%"></ion-skeleton-text
+      ></ion-card-subtitle>
+      <ion-card-title
+        ><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text
+      ></ion-card-title>
     </ion-card-header>
-
     <ion-card-content>
       <p>
-        Cada vez te acercas más a tu meta de ahorro, la siguiente cuota es de
-        <strong>{{ feeCardInfo.fee | currency: "COP" }}</strong>
+        <ion-skeleton-text animated></ion-skeleton-text>
       </p>
-      <ion-button
-        *ngIf="showSaveButton"
-        class="ion-margin-top"
-        color="success"
-        size="small"
-        (click)="onQuotaSavedClickHandler()"
-        >Abonar</ion-button
-      >
+      <p>
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </p>
+      <p>
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </p>
+      <ion-button class="ion-margin-top" color="success" size="small"
+        ><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text
+      ></ion-button>
     </ion-card-content>
   </ion-card>
-</ng-template>
+} @else {
+  @if (feeCardInfo === null) {
+    <p>Sin información para el Card.</p>
+  }
+  @if (feeCardInfo !== null) {
+    <ion-card
+      [button]="true"
+      class="ion-margin-bottom"
+      (click)="onCardClickHandler()"
+      >
+      <ion-card-header>
+        <ion-card-subtitle>{{
+          feeCardInfo.saving_date | date: "dd/MM/yyyy"
+        }}</ion-card-subtitle>
+        <ion-card-title>Ahorrando para "{{ feeCardInfo.goal }}"</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Cada vez te acercas más a tu meta de ahorro, la siguiente cuota es de
+          <strong>{{ feeCardInfo.fee | currency: "COP" }}</strong>
+        </p>
+        @if (showSaveButton) {
+          <ion-button
+            class="ion-margin-top"
+            color="success"
+            size="small"
+            (click)="onQuotaSavedClickHandler()"
+            >Abonar</ion-button
+            >
+          }
+        </ion-card-content>
+      </ion-card>
+    }
+  }
+

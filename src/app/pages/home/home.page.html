@@ -3,42 +3,44 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="isLoadingCardsInfo;else cardsList">
-    <app-fee-card
-      *ngFor="let fakeCard of fakeCards"
-      [isSkeleton]="true"
-    ></app-fee-card>
-  </div>
+  @if (isLoadingCardsInfo) {
+    <div>
+      @for (fakeCard of fakeCards; track fakeCard) {
+        <app-fee-card
+          [isSkeleton]="true"
+        ></app-fee-card>
+      }
+    </div>
+  } @else {
+    @if (feeCardsInfo.length === 0) {
+      <section
+        class="ion-text-center ion-padding-horizontal"
+        >
+        <ion-text color="secondary">
+          <h2>
+            ¡{{ userName }}, anímate a crear tu primer plan de ahorros!
+          </h2></ion-text
+          >
+          <ion-text color="medium">
+            <p>
+              Para hacerlo haz click en el botón flotante que está en la parte
+              inferior derecha y que tiene un +
+            </p>
+          </ion-text>
+        </section>
+      }
+      @for (feeCardInfo of feeCardsInfo; track feeCardInfo) {
+        <app-fee-card
+          [feeCardInfo]="feeCardInfo"
+          (onQuotaSaved)="onQuotaSaved($event)"
+          (onCardClick)="onCardClickHandler($event)"
+        ></app-fee-card>
+      }
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="tertiary" (click)="onCreateClick()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    }
 
-  <ng-template #cardsList>
-    <section
-      class="ion-text-center ion-padding-horizontal"
-      *ngIf="feeCardsInfo.length === 0"
-    >
-      <ion-text color="secondary">
-        <h2>
-          ¡{{ userName }}, anímate a crear tu primer plan de ahorros!
-        </h2></ion-text
-      >
-      <ion-text color="medium">
-        <p>
-          Para hacerlo haz click en el botón flotante que está en la parte
-          inferior derecha y que tiene un +
-        </p>
-      </ion-text>
-    </section>
-
-    <app-fee-card
-      *ngFor="let feeCardInfo of feeCardsInfo"
-      [feeCardInfo]="feeCardInfo"
-      (onQuotaSaved)="onQuotaSaved($event)"
-      (onCardClick)="onCardClickHandler($event)"
-    ></app-fee-card>
-
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button color="tertiary" (click)="onCreateClick()">
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-  </ng-template>
-</ion-content>
+  </ion-content>
